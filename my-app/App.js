@@ -63,3 +63,24 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+/*
+<NavigationContainer>
+
+<Stack.Navigator>
+
+    <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+    />
+
+    <Stack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+    />
+
+</Stack.Navigator>
+
+</NavigationContainer>
+
+*/
