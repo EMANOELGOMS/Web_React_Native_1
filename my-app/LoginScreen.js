@@ -1,17 +1,26 @@
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native'
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
+  const handleLogin = () => {
+    // Navegar para a tela 'Home' sem necessidade de autenticação
+    navigation.navigate('Home');
+  };
 
-    const irParaHome = () => {
-        navigation.navigate('HomeScreen')
-    }
+  return (
+    <View style={styles.container}>
+      <Text>Tela de Login</Text>
+      <Button title="Login" onPress={handleLogin} />
+    </View>
+  );
+};
 
-    return (
-        <View>
-            <Text>Sistema de Busca de Atletas</Text>
-            <TouchableOpacity onPress={irParaHome} >
-                <Text>Entrar</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default LoginScreen;
