@@ -43,10 +43,6 @@ export default HomeScreen = ({navigation}) => {
             Alert.alert('Erro durante a busca')
         }
 
-      /*   if (navigation) {
-            
-            
-        } */
     }
 
     return (
