@@ -30,16 +30,18 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingRight: 10,
   },
   barraPesquisa: {
     flex: 1,
-    padding: 10,
+    padding: 8,
     fontSize: 16,
     borderRadius: 4,
     borderWidth: 1,
     borderColor: '#ccc',
-    marginRight: 10,
-    width: 300,
+    margin: 8,
+    width: 200,
+    paddingLeft: 10,
   },
 });
 

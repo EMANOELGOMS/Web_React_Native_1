@@ -9,7 +9,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Tela de Login</Text>
+      <Text style = {styles.title}>Tela de Login</Text>
       <Button title="Login" onPress={handleLogin} />
     </View>
   );
@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 20,
+    marginBottom: 10,}
 });
 
 export default LoginScreen;

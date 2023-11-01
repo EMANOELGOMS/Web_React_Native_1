@@ -3,24 +3,40 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import SearchBar from './SearchBar';
 import GetPlayerInfo from './jogadorInfor';
+import PainelFavoritos from './PainelFavoritos';
 
 
 const HomeScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [favoritos, setFavoritos] = useState([]);
+  //const [showPlayerInfo, setShowPlayerInfo] = useState(false);
+
 
   const handleSearch = (query) => {
     setSearchQuery(query);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+    setShowPlayerInfo(false);
+  };
+
+  const adicionarFavorito = (atleta) => {
+    setFavoritos([...favoritos, atleta]);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Buscar Jogador</Text>
       <StatusBar style="auto" />
-      {/* barra de pesquisa */}
-      <SearchBar onSearch={handleSearch} />
+      
+      <SearchBar onSearch={handleSearch} onClear={clearSearch}/>
       <ScrollView>
-        {searchQuery && <GetPlayerInfo searchQuery={searchQuery} />}
+        {searchQuery && <GetPlayerInfo searchQuery={searchQuery} onAdicionarFavorito={adicionarFavorito}/>}
       </ScrollView>
+      
+      <PainelFavoritos favoritos={favoritos}></PainelFavoritos>
+      
     </View>
   );
 };

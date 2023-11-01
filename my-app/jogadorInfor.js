@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import { Button } from 'react-native';
 
-const GetPlayerInfo = ({ searchQuery }) => {
+
+const GetPlayerInfo = ({ searchQuery, onAdicionarFavorito }) => {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
@@ -13,6 +15,7 @@ const GetPlayerInfo = ({ searchQuery }) => {
 
         const response = await axios.get(apiUrl);
         const filteredPlayers = response.data.map(player => ({
+          id: player.player_id,
           nome: player.player_name,
           time: player.team_name,
           foto: player.player_image,
@@ -26,6 +29,7 @@ const GetPlayerInfo = ({ searchQuery }) => {
         console.error('Error fetching player data:', error);
       }
     };
+
 
     if (searchQuery) {
       fetchData();
@@ -42,7 +46,7 @@ const GetPlayerInfo = ({ searchQuery }) => {
   return (
     <View style={styles.container}>
       {players.map((player) => (
-        <View key={player.nome} style={styles.playerCard}>
+        <View key={player.id} style={styles.playerCard}>
           <Text style={styles.playerName}>{player.nome}</Text>
           <Text>Time: {player.time}</Text>
           {player.foto && <Image source={{ uri: player.foto }} style={styles.playerImage} />}
@@ -50,6 +54,8 @@ const GetPlayerInfo = ({ searchQuery }) => {
           <Text>Número da camisa: {player.numero}</Text>
           <Text>Idade: {player.idade}</Text>
           <Text>Gols marcados: {player.qtdGolsMarcados}</Text>
+
+          <Button title = "Adicionar ao favoritos" onPress = {()=> onAdicionarFavorito(player)} ></Button>
         </View>
       ))}
     </View>
