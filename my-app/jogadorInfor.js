@@ -14,19 +14,22 @@ const GetPlayerInfo = ({ searchQuery, onAdicionarFavorito }) => {
         const apiUrl = `https://apiv3.apifootball.com/?action=get_players&player_name=${searchQuery}&APIkey=${apiKey}`;
 
         const response = await axios.get(apiUrl);
-        const filteredPlayers = response.data.map(player => ({
-          id: player.player_id,
-          nome: player.player_name,
-          time: player.team_name,
-          foto: player.player_image,
-          numero: player.player_number,
-          idade: player.player_age,
-          qtdGolsMarcados: player.player_goals,
-          posicao: player.player_type
-        }));
-        setPlayers(filteredPlayers);
+        let filteredPlayers = [];
+        if (response && response.data) {
+          filteredPlayers = response.data.map(player => ({
+            id: player.player_id,
+            nome: player.player_name,
+            time: player.team_name,
+            foto: player.player_image,
+            numero: player.player_number,
+            idade: player.player_age,
+            qtdGolsMarcados: player.player_goals,
+            posicao: player.player_type
+          }));
+          setPlayers(filteredPlayers);
+        }
       } catch (error) {
-        console.error('Error fetching player data:', error);
+        console.error('Error fetching player data:', error.message);
       }
     };
 
