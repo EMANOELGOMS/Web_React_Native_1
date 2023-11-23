@@ -48,8 +48,8 @@ const GetPlayerInfo = ({ searchQuery, onAdicionarFavorito }) => {
       {players.map((player) => (
         <View key={player.id} style={styles.playerCard}>
           <Text style={styles.playerName}>{player.nome}</Text>
-          <Text>Time: {player.time}</Text>
           {player.foto && <Image source={{ uri: player.foto }} style={styles.playerImage} />}
+          <Text>Time: {player.time}</Text>
           <Text>Posição: {player.posicao}</Text>
           <Text>Número da camisa: {player.numero}</Text>
           <Text>Idade: {player.idade}</Text>
