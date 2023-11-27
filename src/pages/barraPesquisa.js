@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+/* import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -65,3 +65,4 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
 });
+ */
