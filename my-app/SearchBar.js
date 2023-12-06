@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
 
 const SearchBar = ({ onSearch }) => {
+  //Cria o estado e armazena os jogadores
   const [playerName, setPlayerName] = useState('');
 
   const handleInputChange = (text) => {
     setPlayerName(text);
   };
 
+//handleSearch = indentidicador da pesquisa
   const handleSearch = () => {
     onSearch(playerName);
   };

@@ -4,10 +4,14 @@ import axios from 'axios';
 import { Button } from 'react-native';
 
 
+
+// Definicao do componente
 const GetPlayerInfo = ({ searchQuery, onAdicionarFavorito }) => {
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState([]); //Cria o estado e armazena os jogadores
+
 
   useEffect(() => {
+    //busca dos dados
     const fetchData = async () => {
       try {
         const apiKey = '3e0a856bd02675eba4ca1a26f3c5a98dbc1b1118c44f1dac567623de4af6e24a';
@@ -37,6 +41,7 @@ const GetPlayerInfo = ({ searchQuery, onAdicionarFavorito }) => {
     if (searchQuery) {
       fetchData();
     } else {
+      //é setado como vazio
       setPlayers([]);
     }
   }, [searchQuery]);

@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const [favoritos, setFavoritos] = useState([]);
   //const [showPlayerInfo, setShowPlayerInfo] = useState(false);
 
-
+  //query=coonsulrta
   const handleSearch = (query) => {
     setSearchQuery(query);
   };
